@@ -17,7 +17,7 @@
   var deeplink = `yuh://authorization/email-otp?challenge=${challenge}`;
   (function init() {
     document.getElementById("challenge").addEventListener("input", 
-                                                          (e) => console.log(e?.target?.value));
+                                                          (e) => updateChallenge(e?.target?.value));
   })();
   
   function openApp() {
