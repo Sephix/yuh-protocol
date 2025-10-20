@@ -3,6 +3,7 @@
   <head>
     <title>Yuh protocol</title>
   </head>
+  <p>Link is: <i id="link"></i></p>
   <p>
     <input id="challenge" type="text">
   </p>
@@ -28,6 +29,7 @@
   function updateChallenge(ch) {
     challenge = ch;
     document.getElementById("alink").href = deeplink();
+    document.getElementById("link").value = deeplink();
   }
   
 </script>
