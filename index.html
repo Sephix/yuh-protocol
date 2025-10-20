@@ -14,7 +14,7 @@
   </p>
 <script>
   var challenge = "";
-  var deeplink = `yuh://authorization/email-otp?challenge=${challenge}`;
+  var deeplink = () => `yuh://authorization/email-otp?challenge=${challenge}`;
   (function init() {
     document.getElementById("challenge").addEventListener("input", 
                                                           (e) => updateChallenge(e?.target?.value));
@@ -22,12 +22,12 @@
   
   function openApp() {
     console.log("Opening yuh app");
-    window.location.href = deeplink;
+    window.location.href = deeplink();
   }
 
   function updateChallenge(ch) {
     challenge = ch;
-    document.getElementById("alink").href = deeplink;
+    document.getElementById("alink").href = deeplink();
   }
   
 </script>
