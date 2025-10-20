@@ -3,15 +3,33 @@
   <head>
     <title>Yuh protocol</title>
   </head>
-<body>
-  <button id="button1" onclick="openApp()">Click me!</button>
-  <a href="yuh://authorization/email-otp">A link</a>
-</body>
-
+  <p>
+    <input id="challenge" type="text">
+  </p>
+  <p>  
+    <button id="button1" onclick="openApp()">Click me!</button>
+  </p>
+  <p>
+    <a id="alink" href="yuh://authorization/email-otp">A link</a>
+  </p>
 <script>
+  var challenge = "";
+  var deeplink = `yuh://authorization/email-otp?challenge=${challenge}`;
+  (function {
+    document.getElementById("challenge").addEventListener("input", 
+                                                          (e) => console.log(e?.target?.value));
+  })();
+  
   function openApp() {
     console.log("Opening yuh app");
-    window.location.href = "yuh://authorization/email-otp";
+    window.location.href = deeplink;
   }
+
+  function updateChallenge(ch) {
+    challenge = ch;
+    document.getElementById("alink").href = deeplink;
+  }
+  
 </script>
+</body>
 </html>
